@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    * { margin: 0; padding: 0; }
+    body, html { width: 100%; overflow-x:hidden; }    
+    ul { list-style: none;}
+    a { text-decoration: none; }
+    .collap_item { position:fixed; top:50px; left:10px; z-index:90; }
+    .collap_item label { display:block; width: 42px; height: 42px; float:left; position:relative; cursor:pointer; } 
+    .collap_item label span { display:block; width:6px; height:6px; background:#000; position:absolute; transition:0.5s; } 
+    .collap_item label .rec1 { top: 12px; left: 12px; }    
+    .collap_item label .rec2 { top: 12px; left:24px; }
+    .collap_item label .rec3 { top: 24px; left: 12px; }    
+    .collap_item label .rec4 { top: 24px; left:24px; }
+        
+    .collap_item label:hover .rec1 { top: 15px; left: 15px; }    
+    .collap_item label:hover .rec2 { top: 15px; left:21px; }
+    .collap_item label:hover .rec3 { top: 21px; left: 15px; }    
+    .collap_item label:hover .rec4 { top: 21px; left:21px; }    
+    .collap_item .logo { display:block; font-size:24px; font-weight:bold; width:240px; color:#000; line-height: 42px;}  
+        
+    #gnb2 { position:fixed; top:50px; right:50px; z-index:90; }
+    #gnb2 li { clear: both; height:40px; width: 200px; float: right; }    
+    #gnb2 li a { color:#000; font-size:20px; font-weight:bold; } 
+    #gnb2 li a:after { content:""; display:block; clear:both; width:0; height: 3px; background:#000; transition:0.5s; } 
+    #gnb2 li a:hover::after { width: 100%; }
+        
+    #gnb1 { position:fixed; width: 100vw; height: 100vh;  top:0; left: -100vw; transition:0.5s;
+        background:#fff; z-index:100; }
+    #ck1 { display:none; }    
+    #ck1:checked ~ .hd #gnb1 { left: 0; }    
+    .close { width: 48px; height: 48px; position:relative; margin-top: 50px; margin-left: 50px; cursor:pointer; }
+    .close span { display:block; width: 6px; height: 24px; position:absolute; top:12px;left: 21px;  
+        background:#000; }
+    .close .cl1 { transform: rotate(135deg); }
+    .close .cl2 { transform: rotate(45deg); }
+    #gnb1 .main_lst { clear:both; margin-top: 120px;}
+    #gnb1 li { width: 50%; float:left; height:56px; }
+    #gnb1 li a { display:block; font-size:34px; font-weight:bold; padding-left: 3em; color:#000; 
+        line-height: 56px; position:relative; transition:0.5s; }   
+    #gnb1 li a:before { content:"";  width:0px; height:5px; position:absolute; top:29px; left:3em; transition:0.5s; 
+        background:#000; } 
+    #gnb1 li a:hover::before { width: 50px; }    
+    #gnb1 li a:hover { padding-left:4.7em; }
+        
+    #copyright { position:fixed; left:-330px; top:150px; width:120vh; height:120px;  z-index:80;  transform:rotate(-90deg);
+        transform-origin:center 120px; }   
+    .copy { padding: 24px; }
+        
+    .page { position:relative; clear:both; width: 100vw; min-height:100vh; }
+    .pg_wrap { width: 1200px; margin:0 auto;  } 
+    .pg_tit { padding: 4em 0.5em; font-size:60px; line-height: 1.6; opacity:0; margin-top: 10em; transition:1s; }
+    .pg_tit.on { margin-top: 0; opacity:1; }    
+        
+    </style>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script>
+    $(document).ready(function(){
+       $(".page:eq(0)").find(".pg_tit").addClass("on");    
+       $(".page").mouseover(function(){
+          $(this).find(".pg_tit").addClass("on"); 
+       }); 
+    });    
+    </script>
+</head>
+<body>
+    <input type="checkbox" class="ck_item" id="ck1">
+    <header class="hd">
+        <div class="collap_item">   
+            <label for="ck1">
+                <span class="rec rec1"></span>
+                <span class="rec rec2"></span>
+                <span class="rec rec3"></span>
+                <span class="rec rec4"></span>
+            </label>
+            <a href="index/html" class="logo">
+                I ♥ JISEON
+            </a>
+        </div> 
+        <nav id="gnb1">
+            <label for="ck1" class="close">
+                <span class="cl cl1"></span>
+                <span class="cl cl2"></span>
+            </label>
+            <ul class="main_lst">
+                <li><a href="">MENU1</a></li>
+                <li><a href="">MENU2</a></li>
+                <li><a href="">MENU3</a></li>
+                <li><a href="">MENU4</a></li>
+                <li><a href="">MENU5</a></li>
+                <li><a href="">MENU6</a></li>
+                <li><a href="">MENU7</a></li>
+                <li><a href="">MENU8</a></li>
+            </ul>
+        </nav>
+        <nav id="gnb2">
+            <ul>
+                <li><a href="">메뉴1</a></li>
+                <li><a href="">메뉴2</a></li>
+                <li><a href="">메뉴3</a></li>
+                <li><a href="">메뉴4</a></li>
+                <li><a href="">메뉴5</a></li>
+            </ul>
+        </nav> 
+        <div id="copyright">
+            <p class="copy">All Copyrights by ShinJiSeon Love Machine <br> &copy;2019 Twosomeplace</p>
+        </div>  
+    </header>
+    <main class="page" id="page1">
+        <div class="pg_wrap">
+            <h2 class="pg_tit">Main Intro <br> Main Contents</h2>
+        </div>
+    </main>
+    <main class="page" id="page2">
+        <div class="pg_wrap">
+            <h2 class="pg_tit">Secondary Contents <br> Important Contents</h2>
+        </div>
+    </main>
+    <main class="page" id="page3">
+        <div class="pg_wrap">
+            <h2 class="pg_tit">Third Contents <br> Keypoints Contents</h2>
+        </div>
+    </main>
+    <main class="page" id="page4">
+        <div class="pg_wrap">
+            <h2 class="pg_tit">Notice Contents <br> Community Contents</h2>
+        </div>
+    </main>
+</body>
+</html>
