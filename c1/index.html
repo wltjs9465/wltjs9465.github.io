@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>동국제강</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+
+    .main_tit_fr { width: 100%; height: 100vh; position:absolute; top:0; left:0; z-index:1; }
+    .main_tit { text-align:center; }
+    #frm1 { background-color:transparent; margin:30px auto; width:845px; height: 115px; position:relative; margin-top: -60px;  }
+    #keyword {  display:block; width: 700px; height: 80px; font-size: 30px; background-color: rgba(0,0,0,0.5); border: 2px solid #666666; float: left; margin: 15px; cursor:pointer; }
+    .col_ck_close { position:absolute; right:126px; top:15px; display:block; text-indent:-9999px; width: 84px; height: 84px; cursor:pointer;  display:none;  background-image:url("./img/col_ck_btn.png"); background-size:cover; }    
+    .search_btn { display:block; width: 84px; height: 84px; float:right; margin-right:15px; text-indent:-9999px; cursor:pointer; 
+        background-image: url("./img/search_btn.png"); background-size:cover; margin-top: 15px; }    
+    #col_ck { display:none; position:absolute; }    
+    #col_ck:checked ~ #frm1 { background-color:#fff; } 
+    #col_ck:checked ~ #frm1 .col_ck_close { display:block; }    
+    .snap { width: 100vw; height: 100vh; }
+    .vdo_fr { width: 100vw; height: 100vh; overflow:hidden; position:absolute; top:0; left:0; opacity:1; 
+        transition:0.5s;      z-index:0; }
+    .vdo_fr.on { opacity:0; z-index:-1; }    
+    .full { clear:both; min-height:300px;  }
+    .full .thum_box .tit2 { text-align:center; font-size:4rem; }
+    .full .thum_box li{ float:left; }
+    .full .thum_box li a { color:#000; }
+    .full .thum_box li a .en { display:block; }
+    .full .thum_box li a .kr { display:none; }    
+    .full .thum_box li a:hover .en { display:none; }
+    .full .thum_box li a:hover .kr { display:block; }
+    .full .thum_box li .tit3 { text-decoration:underline; color:darkred; line-height: 2;padding-bottom:1em;}
+        
+    .thum_box { min-height:770px; width: 1280px; margin: 0 auto; background-color: #fff; padding-top:1.6em; }
+    .tit2 { text-align: center; line-height: 3.6; font-size:3em; color:#fff; }
+    .thum_fr { width: 1240px; margin: 0 auto; margin-top: 40px;}
+    .thum_fr li { float: left; height: 360px; margin-right: 40px; overflow:hidden; cursor:pointer;}
+    .thum_fr li a { display:block; background-color:#f2f2f2; border:2px solid transparent; padding:2rem; min-height:240px; 
+        transition:0.6s;}
+    .thum_fr li a:hover { border:2px solid darkred;  background-color:#fff; } 
+    .thum_com { padding-top: 1em; padding-bottom: 1em;}
+    .thum_fr li .kr, .thum_fr li .en { font-size:1.4em;}
+    .thum_fr li.pic a { background-image: url(./img/visual.jpg); background-size: cover; color:#fff; }
+    .thum_fr li.pic a .tit3 { color:#fff; }
+    .col4.first { margin-left: 40px; }
+    .col4 { width: 360px; }
+    .col8 { width: 760px; }
+
+    .vs { width: 1240px; margin: 0 auto; height:400px; overflow:hidden;  position:relative; background-color:#fff; padding-left: 40px; padding-top: 40px; padding-bottom: 40px;  }   
+    .img_box { width: 400%; }
+    .img_box li { width: 25%; float:left; position:relative; cursor:pointer; overflow-x:hidden; }
+    .img_box .img { float:left; width: 50%; position:relative;}
+    .img_box .text { float:right; width: 50%; position:relative; }
+    .img_box .text:after { content:" "; display:block; width: 90px; height: 4px; background:darkred; position:absolute; 
+        left:-40px; top:80px; }
+    .img_box li .kr { display:none; }
+    .img_box li .en { display:block; }
+    .img_box li:hover .kr { display:block; }
+    .img_box li:hover .en { display:none; }
+    .text_tit { padding-left:60px; }
+    .text_con { padding-left: 60px; padding-right:2em; word-break:keep-all; }
+    .btn_view { display:block; width: 120px; height: 42px; line-height: 42px; border:2px solid transparent; 
+        margin-left: 60px; margin-top: 15px; color:#333; text-align: center; }
+    .img_box li:hover .btn_view { color:darkred; border:2px solid darkred; }
+    .btn_box { position:absolute; width: 300px; height: 15px; bottom:60px; right:100px; } 
+    .btn_box li { float:left; width: 100px; }    
+    .btn_box li button {display: block; width: 90px; margin: 0 auto; height:6px; background:#ececec; cursor: pointer; }  
+    .btn_box li.on button { background:darkred; }
+    .contact_box { width: 1240px; height:80px;margin: 0 auto; margin-top: 40px; background-color:#fff; clear:both; }
+    .contact_box li { float:left; width: 50%; background-repeat: no-repeat; background-position:218px center; margin-top: 15px; 
+        background-size:32px 32px; }
+    .contact_box li a { display:block; text-align:center; line-height:50px; color: #000; font-size:1.4em; font-weight: bold;}
+    .contact_box li.item1 { background-image: url(./img/place.png);  }
+    .contact_box li.item2 { background-image: url(./img/telephone.png);  } 
+    
+    </style>
+    <script src="jquery-latest.js"></script>
+    <script>
+    $(document).ready(function(){
+        var ht = $(window).height();
+       $(".btn_box li").click(function(){
+           var tar = $(this).index();
+           $(".img_box").not(":animated").animate({"margin-left":tar*1240*-1+"px"}, 700);
+           $(".btn_box li").removeClass("on");
+           $(this).addClass("on");
+       }); 
+        $(window).scroll(function() { 
+            var sc_top = $(window).scrollTop();
+            if(sc_top>=200){
+                $(".snap").addClass("on");
+                $(".vdo_fr").addClass("on");
+                $(".btn_top").fadeIn();
+            } else { 
+                $(".snap").removeClass("on");
+                $(".vdo_fr").removeClass("on");
+                $(".btn_top").fadeOut();
+            }
+        });
+        $("#keyword").click(function(){
+           $("#col_ck").prop("checked", "true");
+        });
+        $(".btn_top").click(function(){
+           $("body, html").animate({"scrollTop" : "0px"}, 500); 
+        });
+    });    
+    </script>
+</head>
+<body>
+   <div class="wrap">
+       <header class="hd">
+           <nav id="tnb">
+               <ul class="left">
+                   <li><a href="index.html">KO</a></li>
+                   <li class="last"><a href="index_en.html">EN</a></li>
+               </ul>
+               <ul class="right">
+                   <li><a href="sub1.html">회사소개</a></li>
+                   <li><a href="sub1.html#page1">지속가능경영</a></li>
+                   <li class="last"><a href="sub1.html#page2">인재경영</a></li>
+               </ul>
+           </nav>
+       </header>
+       <input type="checkbox" id="ck">
+       <nav id="gnb">
+           <ul class="menu1">
+               <li>
+                   <a href="sub1.html#page3">
+                       <span class="en">News Room</span>
+                       <span class="kr">홍보센터</span>
+                    </a>
+               </li>
+               <li>
+                   <a href="sub1.html#page4">
+                       <span class="en">Compliance Managemaent</span>
+                       <span class="kr">준법경영</span>
+                   </a>
+               </li>
+               <li>
+                   <a href="sub2.html">
+                       <span class="en">View All Product</span>
+                       <span class="kr">제품</span>
+                   </a>
+               </li>
+               <li>
+                   <a href="sub1.html">
+                       <span class="en">Company Introduction</span>
+                       <span class="kr">기업소개</span>
+                   </a>
+               </li>
+           </ul>
+           <ul class="menu2">
+               <li><a href="sub1.html#page5">투자정보</a></li>
+               <li><a href="sub1.html#page6">사회공헌</a></li>
+               <li><a href="sub3.html">인재채용</a></li>
+           </ul>
+           <ul class="menu3">
+               <li><a href="sub1.html#page7">Network</a></li>
+               <li><a href="sub1.html#page8">CEO</a></li>
+           </ul>
+           <label for="ck" class="close_btn"></label>
+       </nav>
+       <label for="ck" class="lst_btn"></label>
+      <div class="vdo_fr">
+           <video src="./img/main_01.mp4" autoplay="true" loop="true" id="vdo1"></video>
+       </div>
+       <div class="snap"></div>
+       <div class="main_tit_fr">
+           <h1 class="main_tit">
+               <img src="./img/logo_white-01.png" alt="logo">
+           </h1>
+           <input type="checkbox" id="col_ck">
+           <form action="" id="frm1">
+               <input type="text" id="keyword">
+               <label for="col_ck" class="col_ck_close">닫기</label>
+               <input type="submit" class="search_btn">
+           </form>
+       </div>
+     <h2 class="tit2">
+         INSIGHTS 
+      </h2>
+       <div class="full">
+           <div class="thum_box">
+               <ul class="thum_fr">
+                   <li class="col4 first">
+                       <a href="sub2.html#page1">
+                           <h4 class="tit3">PRODUCT</h4>
+                            <span class="kr">컬러강판</span>
+                            <span class="en">Pre-Coated Metal</span>
+                            <p class="thum_com">
+                              세계 최초 컬러강판 브랜드를 론칭하며 전세계 건재용.가전용 컬러강판 시장을 
+                              선도하고 있습니다.  
+                            </p>
+                       </a>
+                   </li>
+                   <li class="col4">
+                       <a href="sub2.html#page2">
+                            <h4 class="tit3">PRODUCT</h4>
+                            <span class="kr">냉연도금강판</span>
+                            <span class="en">Cold Rolled Galvanized Steel</span>
+                            <p class="thum_com">
+                              최상위 도금기술을 도금기술을 적용한 도금강판은 국내외 시장에서 독자성을 인정받고 있습니다.  
+                            </p>
+                       </a>
+                   </li>
+                   <li class="col4">
+                       <a href="sub2.html#page3">
+                        <h4 class="tit3">PRODUCT</h4>
+                         <span class="kr">후판</span>  
+                         <span class="en">Steel Plates</span>
+                         <p class="thum_com">
+                           국내 최초로 시작하여 오랜기간 후판 생산 노하우와 최신설비를 보유하고 있습니다.  
+                         </p>
+                       </a>
+                   </li>
+                   <li class="col4 first">
+                       <a href="sub2.html#page4">
+                           <h4 class="tit3">PRODUCT</h4>
+                            <span class="kr">봉강</span>
+                            <span class="en">Reinforcing Bars</span>
+                            <p class="thum_com">
+                              다양한 규격의 고장력, 초고장력 봉강과 프리미엄 코인철근을 생산하고 있습니다.  
+                            </p>
+                       </a>
+                   </li>
+                   <li class="col8 pic">
+                       <a href="sub2.html#page5">
+                            <h4 class="tit3">PRODUCT</h4>
+                            <span class="kr">형강</span>  
+                            <span class="en">Section</span>
+                            <p class="thum_com">
+                              성능과 안전성이 입증된 다품종, 다규격 형강제품은 우리 일상생활 곳곳에서
+                              적용되고 있습니다.  
+                            </p> 
+                       </a>
+                     </li>
+               </ul>
+           </div>
+       </div>
+       <div class="full">
+           <figure class="vs">
+             <ul class="img_box">
+                 <li class="item1 on">
+                     <div class="img">
+                         <img src="./img/social1.jpg" alt="">
+                     </div>
+                     <div class="text">
+                         <p class="text_tit">
+                             <span class="kr">사회공헌</span><br>
+                             <span class="en">Social Contributuions</span><br>
+                         </p>
+                         <p class="text_con">
+                         따뜻한 세상을 만드는 행복한 나눔을 실천합니다<br>
+                          동국제강은 기업의 근간이 지역사회에 있음을 알기에 1954년 창립 이후 꾸준히 '이웃과 함께하는 나눔'을 실현해가고 있습니다.<br>
+                         '사회환원'의 경영이념을 바탕으로 사회와 함께하는 기업시민으로서의 책임을 다하겠습니다.   
+                         </p>
+                         <a href="sub1.html#page1" class="btn_view">자세히</a> 
+                     </div>
+                 </li>
+                 <li class="item2">
+                     <div class="img">
+                         <img src="./img/social2.jpg" alt="">
+                     </div>
+                     <div class="text">
+                         <p class="text_tit">
+                             <span class="kr">윤리경영</span><br>
+                             <span class="en">Ethics Management</span><br>
+                         </p>
+                         <p class="text_con">
+                            공정하고 투명한 경영을 통해 윤리경영을 실천하겠습니다<br>
+                            사회와 고객이 신뢰하는 윤리경영을 실천하기 위해 윤리강령을 제정하여 임직원들의 행동의 기준으로 적용하고 있습니다. 
+                         </p>
+                         <a href="sub1.html#page4" class="btn_view">자세히</a> 
+                     </div>
+                 </li>
+                 <li class="item3">
+                     <div class="img">
+                         <img src="./img/social3.jpg" alt="">
+                     </div>
+                     <div class="text">
+                         <p class="text_tit">
+                             <span class="kr">환경경영</span><br>
+                             <span class="en">Green Management</span><br>
+                         </p>
+                         <p class="text_con">
+                            동국제강은 지속 가능한 가치 창출을 위해 친환경 정책을 실천하고 있습니다<br>
+                            순환 재생 원료로써 고철을 활용하여 새로운 철강 제품을 생산하는 전기로 제조방식을 기반으로 오염물질배출과 에너지소비량을
+                            최소화하려는 원칙을 모든 사업장마다 철저히 지켜나가고 있으며, 공정개선 및 설비투자를 통해 환경 오염을 최소화하는 동시에 
+                            최상의 제품 품질을 만들어 내기 위한 동국제강의 노력은 지금도 지속되고 있습니다.
+                         </p>
+                         <a href="sub1.html#page6" class="btn_view">자세히</a> 
+                     </div>
+                 </li>
+              </ul> 
+              <ul class="btn_box">
+                  <li class="item1 on"><button class="vs_btn"></button></li>
+                  <li class="item2"><button class="vs_btn"></button></li>
+                  <li class="item3"><button class="vs_btn"></button></li>
+              </ul>
+            </figure>     
+
+       </div>
+       <div class="full">
+           <ul class="contact_box">
+               <li class="item1"><a href="sub1.html#location">회사위치</a></li>
+               <li class="item2"><a href="sub1.html#tel">연락처</a></li>
+           </ul>
+           <footer class="ft">
+                <nav id="fnb">
+                   <ul class="menu">
+                       <li><a href="sub1.html#location">회사위치</a></li>
+                       <li><a href="sub4.html#page1">이용약관</a></li>
+                       <li><a href="sub4.html#page2">개인정보처리방침</a></li>
+                       <li><a href="sub4.html#page3">이메일무단수집거부</a></li>
+                       <li class="last"><a href="sub5.html">사이트맵</a></li>
+                   </ul>
+               </nav>
+               <div class="copyright">
+                   <p class="cp">
+                       ©2019 DONGKUKSTEEL MILL CO., LTD. ALL RIGHTS RESERVED.
+                   </p>
+               </div>
+            </footer>         
+       </div>
+   </div> 
+  <div class="btn_top">↑</div>
+</body>
+</html>

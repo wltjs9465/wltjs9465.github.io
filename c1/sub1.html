@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>회사 소개</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+    #vs { clear:both; width:100%; margin:0 auto; height:400px; overflow:hidden; 
+        position:fixed; top: 0; left: 0; z-index:60; } 
+    #vs img { display:block; width:100%; height:auto; }    
+    #tab { clear:both; width: 1350px; margin:auto; height:48px; background:#333; position:fixed; left: 50%; z-index:61; margin-left: -675px; 
+        top:285px; }
+    #tab .tab_bar { position:absolute; top:0; left:0; z-index:40; }
+    #tab li { float:left; }    
+    #tab li a { display:block; color:#fff; line-height:48px; padding:0 1em; text-decoration:none;}  
+    #tab li a.on { background:#19d; }    
+    .page { width:100%; clear:both; min-height:100vh; position:relative; display:none; }
+    .page:target { display:block; }
+    #main1 { display:block; }    
+    .page_wrap { width:1240px; margin:0 auto; }    
+    .page_title { font-size:2em; text-align:center; line-height:3.6; }
+    .pg_vs_fr {position: relative; width:100%; width: 1074px; text-align:center;
+        margin:10px auto; }
+    .pg_vs { display:block; width:100%; height:auto; }
+    .pg_vs_tit { position:absolute; top:48%; left:0%; width:100%; color:#fff; text-align:center; font-size:24px; margin-top:-10px;}
+    .pg_vs_fr .pg_vs_tit2 { position:relative;}
+    .blank { height:360px; } 
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<header class="hd">
+   <nav id="tnb">
+       <ul class="left">
+           <li><a href="index.html">KO</a></li>
+           <li class="last"><a href="index_en.html">EN</a></li>
+       </ul>
+       <ul class="right">
+           <li><a href="sub1.html">회사소개</a></li>
+           <li><a href="sub1.html#page1">지속가능경영</a></li>
+           <li class="last"><a href="sub1.html#page2">인재경영</a></li>
+       </ul>
+   </nav>
+</header>
+<input type="checkbox" id="ck">
+<nav id="gnb">
+   <ul class="menu1">
+       <li>
+           <a href="sub1.html#page3">
+               <span class="en">News Room</span>
+               <span class="kr">홍보센터</span>
+            </a>
+       </li>
+       <li>
+           <a href="sub1.html#page4">
+               <span class="en">Compliance Managemaent</span>
+               <span class="kr">준법경영</span>
+           </a>
+       </li>
+       <li>
+           <a href="sub2.html">
+               <span class="en">View All Product</span>
+               <span class="kr">제품</span>
+           </a>
+       </li>
+       <li>
+           <a href="sub1.html">
+               <span class="en">Company Introduction</span>
+               <span class="kr">기업소개</span>
+           </a>
+       </li>
+   </ul>
+   <ul class="menu2">
+       <li><a href="sub1.html#page5">투자정보</a></li>
+       <li><a href="sub1.html#page1">사회공헌</a></li>
+       <li><a href="sub1.html#page2">인재채용</a></li>
+   </ul>
+   <ul class="menu3">
+       <li><a href="sub1.html#page7">Network</a></li>
+       <li><a href="sub1.html#page8">CEO</a></li>
+   </ul>
+   <label for="ck" class="close_btn"></label>
+</nav>
+<label for="ck" class="lst_btn"></label>
+<main class="content">
+    <figure id="vs">
+        <img src="./img/visual1.jpg" alt="배너이미지">
+    </figure>
+    <nav id="tab">
+        <ul class="tab_bar">
+            <li><a href="#main1">회사소개</a></li>
+            <li><a href="#main2">회사연혁</a></li>
+            <li><a href="#main3">연락처 및 오시는 길</a></li>
+            <li><a href="#page1">지속가능경영</a></li>
+            <li><a href="#page2">인재경영</a></li>
+            <li><a href="#page3">홍보센터</a></li>
+            <li><a href="#page4">준법경영</a></li>
+            <li><a href="#page5">투자정보</a></li>
+            <li><a href="#page1">사회공헌</a></li>
+            <li><a href="#page7">Network</a></li>
+            <li><a href="#page8">CEO</a></li>
+            <li><a href="#location">회사위치</a></li>
+            <li><a href="#tel">연락처</a></li>
+        </ul>
+    </nav> 
+    <script>
+    $("#tab li").click(function(){
+        $(this).find("a").addClass("on"); 
+        $(this).siblings().find("a").removeClass("on");     
+    });    
+    </script>
+    <div class="page" id="main1">
+        <div class="page_wrap">
+            <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">회사소개</h2>
+            <figure class="pg_vs_fr">
+                <img src="./img/bg_principle.jpg" class="pg_vs" alt="회사소개">
+                <h3 class="pg_vs_tit">1977년 1월 송원(松園) 장상태 회장은 <br>
+                동국제강의 초석이 될 경영이념을 제정 공포했습니다.</h3>
+            </figure>
+            <figure class="pg_vs_fr">
+                <img src="./img/txt_vision2.png" alt="회사이념" class="pg_vs_tit2">
+                <img src="./img/vision1.png" alt="" class="pg_vs">
+                
+            </figure>
+        </div>
+    </div>   
+    <div class="page" id="main2">
+        <div class="page_wrap">
+            <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">회사연혁</h2>
+            <div class="item_tab" id="side_tab">
+                <section>
+                   <button type="button" class="on">
+                       개척기<br>
+                       <span>1954~1970</span>
+                   </button>
+                   <button type="button" class="on"></button>
+                   <button type="button" class="on"></button>
+                   <button type="button" class="on"></button>
+                </section>
+                
+            </div>
+            
+        </div>
+    </div>   
+    <div class="page" id="main3">
+        <div class="page_wrap">
+            <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">연락처 및 오시는 길</h2>
+            
+        </div>
+    </div>   
+    <div class="page" id="page1">
+        <div class="page_wrap">
+            <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">지속가능경영</h2>
+            
+        </div>
+    </div>
+    <div class="page" id="page2">
+        <div class="page_wrap">
+            <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">인재경영</h2>
+            
+        </div>
+    </div>
+    <div class="page" id="page3">
+        <div class="page_wrap">
+            <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">홍보센터</h2>
+            
+        </div>
+    </div>
+    <div class="page" id="page4">
+        <div class="page_wrap">
+           <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">준법경영</h2>
+            
+        </div>
+    </div>
+    <div class="page" id="page5">
+        <div class="page_wrap">
+            <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">투자정보</h2>
+            
+        </div>
+    </div>
+    <div class="page" id="page6">
+        <div class="page_wrap">
+            <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">사회공헌</h2>
+            
+        </div>
+    </div>
+    <div class="page" id="page7">
+        <div class="page_wrap">
+            <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">Network</h2>
+            
+        </div>
+    </div>
+    <div class="page" id="page8">
+        <div class="page_wrap">
+            <div class="blank">&nbsp;&nbsp;</div>
+            <h2 class="page_title">CEO</h2>
+            
+        </div>
+    </div>
+</main>
+<footer class="ft">
+    <nav id="fnb">
+       <ul class="menu">
+           <li><a href="sub1.html#location">회사위치</a></li>
+           <li><a href="sub3.html#page1">이용약관</a></li>
+           <li><a href="sub3.html#page2">개인정보처리방침</a></li>
+           <li><a href="sub3.html#page3">이메일무단수집거부</a></li>
+           <li class="last"><a href="sub4.html">사이트맵</a></li>
+       </ul>
+   </nav>
+   <div class="copyright">
+       <p class="cp">
+           ©2019 DONGKUKSTEEL MILL CO. , LTD. ALL RIGHTS RESERVED.
+       </p>
+   </div>
+</footer>    
+<div class="btn_top">↑</div>                     
+</body>
+</html>
