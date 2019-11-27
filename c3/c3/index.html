@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NEOBIOTECH.CO.LTD</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+    * { margin:0; padding:0; }
+    body, html { width:100vw; }
+    ul { list-style:none; }
+    a { text-decoration: none; }
+    .hd { width:100%; height:100px; position:absolute; top:0; left:0; z-index:90; } 
+    .left_menu a { float:right; position:relative; font-size:16px; color:#333130; font-weight:bold; }
+    #left_menu1 a:hover { border-bottom: 8px solid #d83d96; transition:0.3s; }
+    #left_menu2 { }
+    div.blank { position:relative; width:100vw; height:calc(100vh - 42.1875vw - 100px); margin-top:100px; }
+    .left_box { float:left; position:relative; width:60vw; height:42.1875vw;
+       overflow:hidden; }
+    .right_box { float:right; position:relative; width:100vw; height:42.1875vw;
+        overflow:hidden; }
+    .ft { clear:both; position:relative; width:100vw; height:100px; background:#333; }
+    #col_menu { position:absolute; top:0; left:0; z-index:50; width:60vw; }
+    #col_menu li { clear:both; }
+    #col_menu li label { display:block; position:relative; font-size:3.75vw; color: #333130; cursor:pointer; font-weight:bold; }
+    #col_menu li label:hover { color: #d83d96; }
+    #col_menu li label.on { font-size:3.75vw; cursor:none; }
+    .sub { position:absolute; top:-500px; right:0px; width:500px; z-index:80;
+        transition:0.6s; opacity:0; background:#fff; }
+    .sub li a { display:block; font-size:1.04167vw; color:#333; }
+    .sub li a:hover { color: #d83d96;}
+    
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ <header class="hd">
+     <a href="index.html" class="logo"><img src="./images/main-logo-on.png" alt="로고"></a>
+     <ul class="left_menu">
+         <li id="left_menu1"><a href="">공지사항</a></li>
+         <li id="left_menu2"><a href="">KOR</a></li>
+     </ul>
+ </header>
+ <div class="blank">
+<!--
+    <input type="radio" id="ra1" name="rado1" class="n_item">
+    <input type="radio" id="ra2" name="rado1" class="n_item">
+    <input type="radio" id="ra3" name="rado1" class="n_item">
+    <input type="radio" id="ra4" name="rado1" class="n_item"> 
+-->
+    <nav id="col_menu">
+        <ul>
+            <li><label for="ra1" data="1">Company</label>
+            <ul class="sub">
+                <li><a href="">소개</a></li>
+                <li><a href="">인사말</a></li>
+                <li><a href="">CI·BI</a></li>
+                <li><a href="">오시는길</a></li>
+            </ul>
+            </li>
+            <li><label for="ra2" data="2">Implant</label>
+                <ul class="sub">
+                    <li><a href="">임플란트 소개</a></li>
+                    <li><a href="">치료과정 및 관리</a></li>
+                    <li><a href="">디지털 임플란트</a></li>
+                </ul>
+            </li>
+            <li><label for="ra3" data="3">Promotion</label>
+                <ul class="sub">
+                    <li><a href="">언론보도</a></li>
+                    <li><a href="">SNS</a></li>
+                </ul>
+            </li>
+            <li><label for="ra4" data="4">Genuine</label>
+                <ul class="sub">
+                    <li><a href="">네오 사용치과</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <script>
+     $("#col_menu li").click(function(){
+         $(this).find(".sub").addClass("on");
+         $(this).siblings().find(".sub").removeClass("on");
+     });
+    </script>
+ </div>  
+ <div class="left_box" ><img src="./images/company-visual.png" alt="회사소개" >
+     
+ </div> 
+ <div class="right_box" style="">
+     
+ </div>
+ <footer class="ft">
+     
+ </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
