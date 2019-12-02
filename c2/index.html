@@ -5,10 +5,13 @@
     <title>한전엠씨에스 주식회사</title>
     <style>
     @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
     * { margin:0; padding:0;}
-    body, html { width: 100%; overflow-x:hidden; }
+    body, html { width: 100%; overflow-x:hidden; font-family: 'Noto Sans KR', sans-serif; }
     ul { list-style:none; }
     a { text-decoration:none; }
+	label { cursor:pointer; }
+		.ck_item { display:none; }
 	.collap_item { position:fixed; top:50px; left:10px; z-index:90; }
 	.collap_item label { display:block; width:42px; height:42px; float:left; position:relative; cursor:pointer; }
 	.collap_item label span { display:block; width:6px; height:6px; background:#000; position:absolute; transition:0.5s; }
@@ -23,7 +26,7 @@
 	.collap_item .logo { display:block; font-size: 24px; font-weight:bold; width:240px; color:#000; line-height:42px; }
 	#gnb1 { position:fixed; left: -110%; top: 0; z-index:999; width: 100vw; max-height: 100vh; background:#fff; 
 		transition:0.7s; transition-timing-function: ease-out; overflow:hidden; }
-	#ck1:checked ~ .hd #gnb1 { left: 0; }
+	#ck1:checked ~ #gnb1 { left: 0; }
 		.close { display:block; width:60px; height: 60px; float:right; margin-right: 5vw; margin-top: 5vw; position:relative; }
 		.close span { display:block; height: 4px; width: 48px; position:absolute; top: 6px; left: 6px; background:#333; }
 		.close .cl1 { transform:rotate(45deg); }
@@ -34,10 +37,19 @@
 		.main_list li a:before { content:""; display:block; width: 0; height: 4px; background:#222; transition:0.5s; float:left; margin-top: 26px; margin-right: 18px;  }
 		.main_list li a:hover::before { width: 80px; }
 	#gnb2 { position:fixed; top:50px; right:50px; z-index:90; }
-	#gnb2 li { clear:both; height:40px; width:200px; float:right; }
-	#gnb2 li a { color:#000; font-size:20px; font-weight:bold; }
-	#gnb2 li a:after { content:""; display:block; clear:both; width:0; height:3px; background:#000; }
+	#gnb2 li { clear:both; height:40px; width:160px; float:right; margin-right: 28px;}
+	#gnb2 li a { color:#000; font-size:24px; font-weight:bold; }
+	#gnb2 li a:after { content:""; display:block; clear:both; width:0; height:3px; background:#000; transition:0.5s; }
 	#gnb2 li a:hover:after { width:100%; }
+		#lt_con { position:absolute; width: 100vw; height: 120px; bottom: 0; left:90px; transform:rotate(-90deg); z-index:990; transform-origin:left center;}
+		.lang, .copyright { float:left; min-height:120px; min-width:48vh; }
+		.page { clear:both; width: 100%; position:relative; min-height:100vh; }
+		.page:after { content:""; display:table; }
+		.page_wrap { float:left; min-height:100vh; }
+		.main_tit1 { font-size:56px; position:absolute; top:18vh; left: 0; margin-left: 20vw; }
+		.main_tit2 { font-size:18px; margin-top: 28px; padding-top: 28px; border-top:1px solid #000; clear:both; width: 450px; letter-spacing:-1px; position:absolute; left: 0; top: 50vh; margin-left: 20vw; }
+		.main_tit3 { font-size:32px; margin-top:24px; padding-top:14px; position:absolute; left:0; top:56vh; margin-left: 20vw; }
+		.pic { position:absolute; left: 0; top:70vh; margin-left: 20vw; width:300px; height: auto; display:block; }
 		
     </style>
     <script src="./js/jquery-3.4.1.js"></script>
@@ -52,7 +64,7 @@
 	</script>
 </head>
 <body>
-     <input type="checkbox" class="ck_item" id="ck1">
+    <input type="checkbox" class="ck_item" id="ck1">
 	<header class="hd">
 	  <div class="collap_item">
 		  <label for="ck1">
@@ -63,60 +75,84 @@
 		  </label>
 		   <a href="index.html" class="logo">한전엠씨에스(주)</a>
 	</div>
-	<nav id="gnb1">
-		<label for="ck1" class="close">
-			<span class="cl cl1"></span>
-			<span class="cl cl2"></span>
-		</label>
-		<ul class="main_list">
-			<li><a href="">CEO인사말</a></li>
-			<li><a href="">경영방침</a></li>
-			<li><a href="">이사회</a></li>
-			<li><a href="">회사연혁</a></li>
-			<li><a href="">조직도</a></li>
-			<li><a href="">CI</a></li>
-			<li><a href="">찾아오시는길</a></li>
-			<li><a href="">전기검침사업</a></li>
-			<li><a href="">전국사업소개</a></li>
-			<li><a href="">공지사항</a></li>
-			<li><a href="">언론보도자료</a></li>
-			<li><a href="">사회공헌활동</a></li>
-			<li><a href="">채용정보</a></li>
-			<li><a href="">고객문의</a></li>
-			<li><a href="">전력정보</a></li>
-			<li><a href="">전기상식</a></li>
-			<li><a href="">신문고</a></li>
-		</ul>
-	</nav>
 	<nav id="gnb2">
 		<ul>
-			<li><a href=""></a>회사소개</li>
-			<li><a href=""></a>사업분야</li>
-			<li><a href=""></a>사업소현황</li>
-			<li><a href=""></a>한전MCS소식</li>
-			<li><a href=""></a>고객센터</li>
+			<li><a href="">회사소개</a></li>
+			<li><a href="">사업분야</a></li>
+			<li><a href="">사업소현황</a></li>
+			<li><a href="">한전MCS소식</a></li>
+			<li><a href="">고객센터</a></li>
 		</ul>
-	</nav>
-	<div id="main">
-	   <div class="lang">
-		<ul>
-			<li><a href="">KOR</a></li>
-			<li><a href="">ENG</a></li>
-		</ul>
-		</div>
-		<div class="copyright">
-		   <p>
-			All copyrights by  Reserved<br>
-			&copy; 2019 HanJeonMCS
-		   </p> 
-		</div>
-		<h1 class="main tit1">
-		고객을<br> 최우선으로 생각하는<br>
-		With People, New KEPCO MCS</h1>
-		<h4 class="main tit2">한전엠씨에스에 고객 여러분들의 많은 성원 부탁드립니다.</h4>
-		<h2 class="main tit3">BUSINESS</h2>
-		<img src="./images/main_slider01.png" alt="메인이미지">
-	</div>
+	</nav>	
 </header>
+<nav id="gnb1">
+	<label for="ck1" class="close">
+		<span class="cl cl1"></span>
+		<span class="cl cl2"></span>
+	</label>
+	<ul class="main_list">
+		<li><a href="">CEO인사말</a></li>
+		<li><a href="">경영방침</a></li>
+		<li><a href="">이사회</a></li>
+		<li><a href="">회사연혁</a></li>
+		<li><a href="">조직도</a></li>
+		<li><a href="">CI</a></li>
+		<li><a href="">찾아오시는길</a></li>
+		<li><a href="">전기검침사업</a></li>
+		<li><a href="">전국사업소개</a></li>
+		<li><a href="">공지사항</a></li>
+		<li><a href="">언론보도자료</a></li>
+		<li><a href="">사회공헌활동</a></li>
+		<li><a href="">채용정보</a></li>
+		<li><a href="">고객문의</a></li>
+		<li><a href="">전력정보</a></li>
+		<li><a href="">전기상식</a></li>
+		<li><a href="">신문고</a></li>
+	</ul>
+</nav>
+<div id="lt_con">
+	<div class="copyright">
+	   <p>
+		All copyrights by  Reserved<br>
+		&copy; 2019 HanJeonMCS
+	   </p> 
+	</div>
+   <div class="lang">
+	<ul>
+		<li><a href="">KOR</a></li>
+		<li><a href="">ENG</a></li>
+	</ul>
+	</div>
+</div>
+<main class="content">
+	<div class="page" id="page1">
+		<div class="page_wrap">
+			<h1 class="main_tit1">
+				고객을<br> 최우선으로 생각하는<br>
+				With People, New KEPCO MCS
+			</h1>
+			<h4 class="main_tit2">
+				<span class="tit2_fr">한전엠씨에스에</span>
+				<span>고객 여러분들의</span> 
+				<span>많은 성원 부탁드립니다.</span>
+			</h4>
+			<h4 class="main_tit3">Business</h4>
+			<img src="./images/main_slider01_pic.png" alt="메인이미지" class="pic">
+		</div>
+	</div>
+	<div class="scroll_img_box">
+		<img src="./images/main_slider01.png" alt="메인이미지" class="pic2">
+	</div>
+	<div class="page" id="page2">
+		<ul>
+		<a href="">
+			사람중심의 따뜻한 고객 서비스로
+			모두가 행복한 세상을 만들겠습니다.
+		</a>
+		</ul>
+	</div>
+	<div class="page" id="page3"></div>
+	<div class="page" id="page4"></div>
+</main>
 </body>
 </html>
