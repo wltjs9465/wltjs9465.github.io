@@ -28,7 +28,7 @@
 		transition:0.7s; transition-timing-function: ease-out; overflow:hidden; }
 	#ck1:checked ~ #gnb1 { left: 0; }
 		.close { display:block; width:60px; height: 60px; float:right; margin-right: 5vw; margin-top: 5vw; position:relative; }
-		.close span { display:block; height: 4px; width: 48px; position:absolute; top: 6px; left: 6px; background:#333; }
+		.close span { display:block; height: 4px; width: 48px; position:absolute; top: 6px; left: 6px; background:#333; cursor:pointer; }
 		.close .cl1 { transform:rotate(45deg); }
 		.close .cl2 { transform:rotate(-45deg); }
 		.main_list { clear:both; overflow: auto; width: 100vw; min-height:100vh; position:relative; }
@@ -41,22 +41,32 @@
 	#gnb2 li a { color:#000; font-size:24px; font-weight:bold; }
 	#gnb2 li a:after { content:""; display:block; clear:both; width:0; height:3px; background:#000; transition:0.5s; }
 	#gnb2 li a:hover:after { width:100%; }
-		#lt_con { position:absolute; width: 100vw; height: 120px; bottom: 0; left:90px; transform:rotate(-90deg); z-index:990; transform-origin:left center; }
-		.lang, .copyright { float:left; min-height:120px; min-width:48vh; }
-        .lang ul a { color:#000; }
-        .lang ul a:after { content:""; display:block; clear:both; width: 0; height:3px; background:#000; transition:0.5s; }
-        .lang ul a:hover:after { width: 7%;}
-		.page { clear:both; width: 100%; position:relative; min-height:100vh; }
-		.page:after { content:""; display:table; }
-		.page_wrap { float:left; min-height:100vh; }
-		.main_tit1 { font-size:56px; position:absolute; top:18vh; left: 0; margin-left: 20vw; }
-		.main_tit2 { font-size:18px; margin-top: 28px; padding-top: 28px; border-top:1px solid #000; clear:both; width: 450px; letter-spacing:-1px; position:absolute; left: 0; top: 50vh; margin-left: 20vw; }
-		.main_tit3 { font-size:32px; margin-top:24px; padding-top:14px; position:absolute; left:0; top:56vh; margin-left: 20vw; }
-		.pic { position:absolute; left: 0; top:70vh; margin-left: 20vw; width:300px; height: auto; display:block; }
+    .hd_menu { position:fixed; top:57px; left:600px; z-index:999; }
+    .hd_menu li { float:left; padding-right:50px; }
+    .hd_menu .hd_lb { display:block; color:gray; font-size:15px; cursor:pointer; }
+    .hd_menu .hd_lb:after { content:""; display:block; clear:both; width:0; height:2px; background-color:gray; transition:0.5s; }
+    .hd_menu .hd_lb:hover:after { width: 100%; }
+    #lt_con { position:absolute; width: 100vw; height: 120px; bottom: 0; left:90px; transform:rotate(-90deg); z-index:990; transform-origin:left center; }
+    .lang, .copyright { float:left; min-height:120px; min-width:48vh; }
+    .lang ul a { color:#000; }
+    .lang ul a:after { content:""; display:block; clear:both; width: 0; height:2px; background:#000; transition:0.5s; }
+    .lang ul a:hover:after { width: 7%;}
+    .page { clear:both; width: 100%; position:relative; min-height:100vh; }
+    .page:after { content:""; display:table; }
+    .page_wrap { float:left; min-height:100vh; }
+    .page_bt { display:block; }
+    .main_tit1 { font-size:56px; position:absolute; top:18vh; left: 0; margin-left: 20vw; }
+    .main_tit2 { font-size:18px; margin-top: 28px; padding-top: 28px; border-top:1px solid #000; clear:both; width: 450px; letter-spacing:-1px; position:absolute; left: 0; top: 50vh; margin-left: 20vw; }
+    .main_tit3 { font-size:32px; margin-top:24px; padding-top:14px; position:absolute; left:0; top:56vh; margin-left: 20vw; }
+    
+    .pic { position:absolute; left: 0; top:70vh; margin-left: 20vw; width:300px; height: auto; display:block; }
+    .page6_tit { position:absolute; left: 100px;}
     .ft{ position:relative; padding:65px; }
     .ft_menu_box { float:left; padding:1%;}
     .ft_bt { clear:both; display:block; }
-    .ft_bt .ft_etc { clear:both; float:right; }
+    .ft_bt .ft_copy { float:left; }
+    .ft_bt .ft_etc {  float:right; }
+    .ft_etc li { float:left; margin:0 1.5rem; }        
     </style>
     <script src="./js/jquery-3.4.1.js"></script>
     <script>
@@ -89,7 +99,15 @@
 			<li><a href="">한전MCS소식</a></li>
 			<li><a href="">고객센터</a></li>
 		</ul>
-	</nav>	
+	</nav>
+	<div class="hd_menu">
+	    <ul>
+	        <li><label class="hd_lb item1">Company</label></li>
+	        <li><label class="hd_lb item2">Customer center</label></li>
+	        <li><label class="hd_lb item3">Social contribucion</label></li>
+	        <li><label class="hd_lb item4">Management polish</label></li>
+	    </ul>
+	</div>	
 </header>
 <nav id="gnb1">
 	<label for="ck1" class="close">
@@ -152,7 +170,7 @@
 				<span>고객 여러분들의</span><br> 
 				<span>많은 성원 부탁드립니다.</span>
         </h1>
-        <h4 class="main_tit5">
+        <h4 class="main_tit4">
         한전MCS는 한국전력공사의 <br>
         검침업무를 책임지고 있는 <br>
         한전의 새로운 에너지 파트너로서<br>
@@ -161,7 +179,7 @@
         제공하는 전문 기업입니다.
         </h4>
         <div class="scroll_img_box">
-            <img src="./images/main_slider01.png" alt="메인이미지" class="pic2">
+            <img src="./images/main_slider01.png" alt="메인이미지" class="pic1">
         </div>
         <div class="page_bt">
            <a href="">
@@ -175,7 +193,7 @@
 				<span>따뜻한 고객 서비스로</span><br> 
 				<span>모두가 행복한 세상을 만들겠습니다.</span>
 	    </h1>
-	   <h4 class="main_tit5">
+	   <h4 class="main_tit4">
         전기를 사용하는 고객에게<br>
         행복 도우미로 감동과<br>
         사랑으로 보답하며,<br>
@@ -183,7 +201,7 @@
         다해나갈 것을 약속드립니다.
         </h4>
         <div class="scroll_img_box">
-        <img src="./images/main_slider02.png" alt="메인이미지" class="pic2">
+        <img src="./images/main_slider02.png" alt="메인이미지" class="pic1">
         </div>
         <div class="page_bt">
            <a href="">
@@ -197,14 +215,14 @@
             <span>고객의 마음에는 명품을,</span><br> 
             <span>New Energy Partner, KEPCO MCS</span>
 	    </h1>
-	    <h4 class="main_tit5">
+	    <h4 class="main_tit4">
 	     ‘New Energy Partner, KEPCO MCS’라는<br>
          비전 아래 공익성과 기업성의 융합으로<br>
          윤리의식을 바탕으로 고객의 신뢰를 확보하여<br>
          KEPCO와 동반성장하는 한전MCS가 되겠습니다.
 	    </h4>
 	    <div class="scroll_img_box">
-	        <img src="./images/main_slider03.png" alt="a메인이미지" class="pic2">
+	        <img src="./images/main_slider03.png" alt="a메인이미지" class="pic1">
 	    </div>
 	    <div class="page_bt">
 	        <a href="">
@@ -218,14 +236,14 @@
             <span>함께 성장하는</span><br> 
             <span>상생의 가치를 실현합니다.</span>
 	    </h1>
-	    <h4 class="main_tit5">
+	    <h4 class="main_tit4">
 	     윤리의식을 바탕으로<br>
          고객 가치를 최우선 하여<br>
          KEPCO와 함께<br>
          동반성장 하는 Clean MCS
 	    </h4>
 	    <div class="scroll_img_box">
-	        <img src="./images/main_slider04.png" alt="a메인이미지" class="pic2">
+	        <img src="./images/main_slider04.png" alt="a메인이미지" class="pic1">
 	    </div>
 	    <div class="page_bt">
 	        <a href="">
@@ -234,7 +252,22 @@
 	    </div>
 	</div>
 	<div class="page" id="page6">
-	    
+	    <div class="page6_tit">
+	        <h1>
+	            New Energy Partner<br>
+	            KEPCO MCS
+	        </h1>
+	    </div>
+	    <div class="page6_sub">
+            <ul>
+                <li>문의하신 내용은 이메일을 통해 신속 답변해 드리겠습니다.</li>
+                <li>Inquiry</li>
+                <img src="./images/img_tab02_02.png" alt="고객문의" class="pic2">
+                <li>한전엠씨에스와 함께 꿈을 펼쳐 나아갈 인재를 모집합니다.</li>
+                <li>Recruit</li>
+                <img src="./images/img_tab04_02.png" alt="인재채용" class="pic2">
+            </ul>
+	    </div>
 	</div>
 </main>
 <footer class="ft">
