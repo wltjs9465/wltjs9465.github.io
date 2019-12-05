@@ -27,15 +27,15 @@
 	#gnb1 { position:fixed; left: -110%; top: 0; z-index:999; width: 100vw; max-height: 100vh; background:#fff; 
 		transition:0.7s; transition-timing-function: ease-out; overflow:hidden; }
 	#ck1:checked ~ #gnb1 { left: 0; }
-		.close { display:block; width:60px; height: 60px; float:right; margin-right: 5vw; margin-top: 5vw; position:relative; }
-		.close span { display:block; height: 4px; width: 48px; position:absolute; top: 6px; left: 6px; background:#333; cursor:pointer; }
-		.close .cl1 { transform:rotate(45deg); }
-		.close .cl2 { transform:rotate(-45deg); }
-		.main_list { clear:both; overflow: auto; width: 100vw; min-height:100vh; position:relative; }
-		.main_list li { width: 40%; margin:0.5vw 5%; float:left; }
-		.main_list li a { display:block; font-size:32px; color:#222; }
-		.main_list li a:before { content:""; display:block; width: 0; height: 4px; background:#222; transition:0.5s; float:left; margin-top: 26px; margin-right: 18px;  }
-		.main_list li a:hover::before { width: 80px; }
+	.close { display:block; width:60px; height: 60px; float:right; margin-right: 5vw; margin-top: 5vw; position:relative; }
+	.close span { display:block; height: 4px; width: 48px; position:absolute; top: 6px; left: 6px; background:#333; cursor:pointer; }
+	.close .cl1 { transform:rotate(45deg); }
+	.close .cl2 { transform:rotate(-45deg); }
+	.main_list { clear:both; overflow: auto; width: 100vw; min-height:100vh; position:relative; }
+	.main_list li { width: 40%; margin:0.5vw 5%; float:left; }
+	.main_list li a { display:block; font-size:32px; color:#222; }
+	.main_list li a:before { content:""; display:block; width: 0; height: 4px; background:#222; transition:0.5s; float:left; margin-top: 26px; margin-right: 18px;  }
+	.main_list li a:hover::before { width: 80px; }
 	#gnb2 { position:fixed; top:50px; right:50px; z-index:90; }
 	#gnb2 li { clear:both; height:40px; width:160px; float:right; margin-right: 28px;}
 	#gnb2 li a { color:#000; font-size:24px; font-weight:bold; }
@@ -49,8 +49,8 @@
     #lt_con { position:absolute; width: 100vw; height: 120px; bottom: 0; left:90px; transform:rotate(-90deg); z-index:990; transform-origin:left center; }
     .lang, .copyright { float:left; min-height:120px; min-width:48vh; }
     .lang ul a { color:#000; }
-    .lang ul a:after { content:""; display:block; clear:both; width: 0; height:2px; background:#000; transition:0.5s; }
-    .lang ul a:hover:after { width: 7%;}
+    .lang ul a:after { content:""; display:block; clear:both; width: 0; height:1.5px; background:#000; transition:0.5s; }
+    .lang ul a:hover:after { width: 10%;}
     .page { clear:both; width: 100%; position:relative; min-height:100vh; }
     .page:after { content:""; display:table; }
     .page_wrap { float:left; min-height:100vh; }
@@ -60,13 +60,17 @@
     .main_tit3 { font-size:32px; margin-top:24px; padding-top:14px; position:absolute; left:0; top:56vh; margin-left: 20vw; }
     
     .pic { position:absolute; left: 0; top:70vh; margin-left: 20vw; width:300px; height: auto; display:block; }
-    .page6_tit { position:absolute; left: 100px;}
-    .ft{ position:relative; padding:65px; }
+    .page6_tit { position:absolute; left: 100px; top:30vh; font-size:30px; font-weight:bolder; }
+	.page6_sub { position:absolute; left:50%; top:70vh; }
+	.page6_sub li { text-align:right; }
+	.
+	.pic2 { }
+    .ft{ position:relative; padding:65px;}
     .ft_menu_box { float:left; padding:1%;}
     .ft_bt { clear:both; display:block; }
     .ft_bt .ft_copy { float:left; }
     .ft_bt .ft_etc {  float:right; }
-    .ft_etc li { float:left; margin:0 1.5rem; }        
+    .ft_etc li { float:left; margin:0 1.5rem; } 
     </style>
     <script src="./js/jquery-3.4.1.js"></script>
     <script>
@@ -259,12 +263,12 @@
 	        </h1>
 	    </div>
 	    <div class="page6_sub">
-            <ul>
-                <li>문의하신 내용은 이메일을 통해 신속 답변해 드리겠습니다.</li>
-                <li>Inquiry</li>
+            <ul class="sub_box">
+                <li class="box_tit1">문의하신 내용은 이메일을 통해 신속 답변해 드리겠습니다.</li>
+                <li class="box_tit2">Inquiry</li>
                 <img src="./images/img_tab02_02.png" alt="고객문의" class="pic2">
-                <li>한전엠씨에스와 함께 꿈을 펼쳐 나아갈 인재를 모집합니다.</li>
-                <li>Recruit</li>
+                <li class="box_tit1">한전엠씨에스와 함께 꿈을 펼쳐 나아갈 인재를 모집합니다.</li>
+                <li class="box_tit2">Recruit</li>
                 <img src="./images/img_tab04_02.png" alt="인재채용" class="pic2">
             </ul>
 	    </div>
