@@ -36,13 +36,14 @@
 	.main_list li a { display:block; font-size:32px; color:#222; }
 	.main_list li a:before { content:""; display:block; width: 0; height: 4px; background:#222; transition:0.5s; float:left; margin-top: 26px; margin-right: 18px;  }
 	.main_list li a:hover::before { width: 80px; }
-	#gnb2 { position:fixed; top:50px; right:50px; z-index:90; }
+	#gnb2 { position:fixed; top:50px; right:50px; z-index:90; height:calc(100vh - 200px); padding-left: 20px; padding-top: 20px; background-color:rgba(255,255,255,0.6); border:1px solid #f1f1f1; }
 	#gnb2 li { clear:both; height:40px; width:160px; float:right; margin-right: 28px;}
 	#gnb2 li a { color:#000; font-size:24px; font-weight:bold; }
 	#gnb2 li a:after { content:""; display:block; clear:both; width:0; height:3px; background:#000; transition:0.5s; }
 	#gnb2 li a:hover:after { width:100%; }
-    .hd_menu { position:fixed; top:57px; left:600px; z-index:999; }
-    .hd_menu li { float:left; padding-right:50px; }
+    .hd_menu { position:fixed; top:57px; left:600px; z-index:999; height: 36px; overflow-y:hidden;  }
+    .hd_menu li { float:left; padding-right:50px; padding-top: 50px; transition:0.75s; transition-timing-function: ease-in-out; }
+	.hd_menu.on li { padding-top: 0; }
     .hd_menu .hd_lb { display:block; color:gray; font-size:15px; cursor:pointer; }
     .hd_menu .hd_lb:after { content:""; display:block; clear:both; width:0; height:2px; background-color:gray; transition:0.5s; }
     .hd_menu .hd_lb:hover:after { width: 100%; }
@@ -51,27 +52,35 @@
     .lang ul a { color:#000; }
     .lang ul a:after { content:""; display:block; clear:both; width: 0; height:1.5px; background:#000; transition:0.5s; }
     .lang ul a:hover:after { width: 10%;}
-    .page { clear:both; width: 100%; position:relative; min-height:100vh; }
+    .page { clear:both; width: 100%; position:relative; min-height:165vh; }
     .page:after { content:""; display:table; }
     .page_wrap { float:left; min-height:100vh; }
-    .page_btn { display:block; overflow:hidden; left: 0; margin-left: 20vw; z-index:999; }
-    .page_btn .btn_txt { position:absolute;  padding: 15px; box-sizing:border-box; background-color:#000; }
-    .main_tit1 { font-size:56px; position:absolute; top:18vh; left: 0; margin-left: 20vw; }
+    .page_btn { display:block;  margin-left: 20vw; clear:both; margin-top: 2rem; }
+    .page_btn .btn_txt { display:block; top:52vh; background-color:gold; width: 120px; height: 50px; line-height: 300%; text-align:center; }
+	.scroll_img_box { position:absolute; bottom:20vh; left: 0; z-index:-1; }
+    .main_tit1 { font-size:56px;  margin-left: 20vw; margin-top: 2rem; text-shadow:0px 0px 5px #f1f1f1; }
     .main_tit2 { font-size:18px; margin-top: 28px; padding-top: 28px; border-top:1px solid #000; clear:both; width: 450px; letter-spacing:-1px; position:absolute; left: 0; top: 50vh; margin-left: 20vw; }
     .main_tit3 { font-size:32px; margin-top:24px; padding-top:14px; position:absolute; left:0; top:56vh; margin-left: 20vw; }
-    
+	.main_tit4 { font-size:16px;  margin-left: 20vw; margin-top: 2rem; text-shadow:0px 0px 2px #f1f1f1; 
+		color:#ccc; font-weight:normal; }
     .pic { position:absolute; left: 0; top:70vh; margin-left: 20vw; width:300px; height: auto; display:block; }
-    .page6_tit { position:absolute; left: 100px; top:30vh; font-size:30px; font-weight:bolder; }
-	.page6_sub { position:absolute; left:50%; top:70vh; }
-	.page6_sub .sub_box { float:right; }
-    .page6_sub .box_tit1 { border-top:1px solid #000; }
+    .page6_tit { margin-left: 100px; margin-top:30vh; font-size:30px; font-weight:bolder; }
+	.page6_sub { margin-top:100px; }
+	.page6_sub .sub_box { float:right; margin-right: 17%;  }
+	.page6_sub .sub_box li { padding: 24px; float:left; }
+	.page6_sub .sub_box span { display:block; line-height: 1.6; }
+	.box_tit_com { padding-top: 20px; border-top:1px solid #333; }
+	.box_tit_txt { font-size:40px; padding-top: 42px; padding-bottom: 24px; }
+    .page6_sub .box_tit1 { float:left; }
 	.pic2 { }
+	#page1, #page6 { min-height:100vh; }
     .ft{ position:relative; padding:65px; }
-    .ft_menu_box { float:left; padding:1.5%; margin-bottom:102px; }
-    .ft_bt { clear:both; display:block; }
+	.ft_menu{ clear:both; height:200px; }
+    .ft_menu_box { float:left; padding:1.5%; }
+    .ft_bt { clear:both; display:block; padding:1.5%; height: 45px; }
     .ft_bt .ft_copy { float:left; }
     .ft_bt .ft_etc { float:right; }
-    .ft_etc li { float:left; margin:0 1.5rem; } 
+    .ft_etc li { float:left; margin:1rem 1rem; } 
     </style>
     <script src="./js/jquery-3.4.1.js"></script>
     <script>
@@ -80,6 +89,16 @@
 		"on");
 		$(".page").mouseover(function(){
 		 $(this).find(".pg_tit").addClass("on");
+		});
+		
+		$(window).scroll(function(){
+			var sc_top = $(window).scrollTop();
+			var ht = $(window).height();
+			if(sc_top<=500){
+				$(".hd_menu").addClass("on");
+			} else {
+				$(".hd_menu").removeClass("on");
+			}
 		});
 	});
 	</script>
@@ -105,7 +124,7 @@
 			<li><a href="">고객센터</a></li>
 		</ul>
 	</nav>
-	<div class="hd_menu">
+	<div class="hd_menu on">
 	    <ul>
 	        <li><label class="hd_lb item1">Company</label></li>
 	        <li><label class="hd_lb item2">Customer center</label></li>
@@ -265,12 +284,16 @@
 	    </div>
 	    <div class="page6_sub">
             <ul class="sub_box">
-                <li class="box_tit1">문의하신 내용은 이메일을 통해 신속 답변해 드리겠습니다.</li>
-                <li class="box_tit2">Inquiry</li>
-                <img src="./images/img_tab02_02.png" alt="고객문의" class="pic2">
-                <li class="box_tit1">한전엠씨에스와 함께 꿈을 펼쳐 나아갈 인재를 모집합니다.</li>
-                <li class="box_tit2">Recruit</li>
-                <img src="./images/img_tab04_02.png" alt="인재채용" class="pic2">
+                <li class="box_tit1">
+                	<span class="box_tit_com">문의하신 내용은 이메일을 통해 신속 답변해 드리겠습니다.</span>
+                	<span class="box_tit_txt">Inquiry</span>
+                	<img src="./images/img_tab02_02.png" alt="고객문의">
+                </li>
+                <li class="box_tit1">
+					<span class="box_tit_com">한전엠씨에스와 함께 꿈을 펼쳐 나아갈 인재를 모집합니다.</span>
+					<span class="box_tit_txt">Recruit</span>
+					<img src="./images/img_tab04_02.png" alt="인재채용">
+                </li>
             </ul>
 	    </div>
 	</div>
