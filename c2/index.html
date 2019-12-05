@@ -54,7 +54,8 @@
     .page { clear:both; width: 100%; position:relative; min-height:100vh; }
     .page:after { content:""; display:table; }
     .page_wrap { float:left; min-height:100vh; }
-    .page_bt { display:block; }
+    .page_btn { display:block; overflow:hidden; left: 0; margin-left: 20vw; z-index:999; }
+    .page_btn .btn_txt { position:absolute;  padding: 15px; box-sizing:border-box; background-color:#000; }
     .main_tit1 { font-size:56px; position:absolute; top:18vh; left: 0; margin-left: 20vw; }
     .main_tit2 { font-size:18px; margin-top: 28px; padding-top: 28px; border-top:1px solid #000; clear:both; width: 450px; letter-spacing:-1px; position:absolute; left: 0; top: 50vh; margin-left: 20vw; }
     .main_tit3 { font-size:32px; margin-top:24px; padding-top:14px; position:absolute; left:0; top:56vh; margin-left: 20vw; }
@@ -62,14 +63,14 @@
     .pic { position:absolute; left: 0; top:70vh; margin-left: 20vw; width:300px; height: auto; display:block; }
     .page6_tit { position:absolute; left: 100px; top:30vh; font-size:30px; font-weight:bolder; }
 	.page6_sub { position:absolute; left:50%; top:70vh; }
-	.page6_sub li { text-align:right; }
-	.
+	.page6_sub .sub_box { float:right; }
+    .page6_sub .box_tit1 { border-top:1px solid #000; }
 	.pic2 { }
-    .ft{ position:relative; padding:65px;}
-    .ft_menu_box { float:left; padding:1%;}
+    .ft{ position:relative; padding:65px; }
+    .ft_menu_box { float:left; padding:1.5%; margin-bottom:102px; }
     .ft_bt { clear:both; display:block; }
     .ft_bt .ft_copy { float:left; }
-    .ft_bt .ft_etc {  float:right; }
+    .ft_bt .ft_etc { float:right; }
     .ft_etc li { float:left; margin:0 1.5rem; } 
     </style>
     <script src="./js/jquery-3.4.1.js"></script>
@@ -185,8 +186,8 @@
         <div class="scroll_img_box">
             <img src="./images/main_slider01.png" alt="메인이미지" class="pic1">
         </div>
-        <div class="page_bt">
-           <a href="">
+        <div class="page_btn">
+           <a href="" class="btn_txt">
                <span>더 알아보기</span>
            </a>
         </div>       
@@ -207,8 +208,8 @@
         <div class="scroll_img_box">
         <img src="./images/main_slider02.png" alt="메인이미지" class="pic1">
         </div>
-        <div class="page_bt">
-           <a href="">
+        <div class="page_btn">
+           <a href="" class="btn_txt">
                <span>더 알아보기</span>
            </a>
         </div>  
@@ -226,10 +227,10 @@
          KEPCO와 동반성장하는 한전MCS가 되겠습니다.
 	    </h4>
 	    <div class="scroll_img_box">
-	        <img src="./images/main_slider03.png" alt="a메인이미지" class="pic1">
+	        <img src="./images/main_slider03.png" alt="메인이미지" class="pic1">
 	    </div>
-	    <div class="page_bt">
-	        <a href="">
+	    <div class="page_btn">
+	        <a href="" class="btn_txt">
 	            <span>더 알아보기</span>
 	        </a>
 	    </div>
@@ -247,10 +248,10 @@
          동반성장 하는 Clean MCS
 	    </h4>
 	    <div class="scroll_img_box">
-	        <img src="./images/main_slider04.png" alt="a메인이미지" class="pic1">
+	        <img src="./images/main_slider04.png" alt="메인이미지" class="pic1">
 	    </div>
-	    <div class="page_bt">
-	        <a href="">
+	    <div class="page_btn">
+	        <a href="" class="btn_txt">
 	            <span>더 알아보기</span>
 	        </a>
 	    </div>
@@ -333,7 +334,7 @@
             <div class="ft_copy">
                 <ul>
                     <li><a href="">한전엠씨에스(주)</a></li>
-                    <li><a href="">Copyright&copy;한전MCS. All Rights Reserved.</a></li>
+                    <li>Copyright&copy;한전MCS. All Rights Reserved.</li>
                 </ul>
             </div>
             <div class="ft_etc">
