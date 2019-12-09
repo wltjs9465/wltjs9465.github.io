@@ -50,13 +50,14 @@
     #lt_con { position:absolute; width: 100vw; height: 120px; bottom: 0; left:90px; transform:rotate(-90deg); z-index:990; transform-origin:left center; }
     .lang, .copyright { float:left; min-height:120px; min-width:48vh; }
     .lang ul a { color:#000; }
-    .lang ul a:after { content:""; display:block; clear:both; width: 0; height:1.5px; background:#000; transition:0.5s; }
-    .lang ul a:hover:after { width: 10%;}
+    .lang ul a:after { content:""; display:block; clear:both; width: 0; height:2px; background:#000; transition:0.5s; }
+    .lang ul a:hover:after { width: 7%;}
     .page { clear:both; width: 100%; position:relative; min-height:165vh; }
     .page:after { content:""; display:table; }
     .page_wrap { float:left; min-height:100vh; }
     .page_btn { display:block;  margin-left: 20vw; clear:both; margin-top: 2rem; }
-    .page_btn .btn_txt { display:block; top:52vh; background-color:gold; width: 120px; height: 50px; line-height: 300%; text-align:center; }
+    .page_btn .btn_txt { display:block; top:52vh; background-color:gold; width: 120px; height: 50px; line-height: 300%; text-align:center; color:#333; }
+    .page_btn .btn_txt:hover { color:aliceblue; background-color:darkslateblue; }
 	.scroll_img_box { position:absolute; bottom:20vh; left: 0; z-index:-1; }
     .main_tit1 { font-size:56px;  margin-left: 20vw; margin-top: 2rem; text-shadow:0px 0px 5px #f1f1f1; }
     .main_tit2 { font-size:18px; margin-top: 28px; padding-top: 28px; border-top:1px solid #000; clear:both; width: 450px; letter-spacing:-1px; position:absolute; left: 0; top: 50vh; margin-left: 20vw; }
@@ -72,19 +73,28 @@
 	.box_tit_com { padding-top: 20px; border-top:1px solid #333; }
 	.box_tit_txt { font-size:40px; padding-top: 42px; padding-bottom: 24px; }
     .page6_sub .box_tit1 { float:left; }
-	.pic2 { }
 	#page1, #page6 { min-height:100vh; }
+    .pic2 { cursor:pointer; }
+    .pic2:hover{ }
     .ft{ position:relative; padding:65px; }
 	.ft_menu{ clear:both; height:200px; }
     .ft_menu_box { float:left; padding:1.5%; }
 	.ft_menu_box .st a { color:#333; }
+    .ft_menu_box .st a:after { content:""; display:block; clear:both; width: 0; height: 1.5px; background:#000; transition:0.5s; }
+    .ft_menu_box .st a:hover:after { width: 100%; }
 	.ft_menu_box .dep li a { color:#333; }
+    .ft_menu_box .dep li a:after { content:""; display:block; clear:both; width: 0; height: 1px; background:#000; transition:0.5s; }
+    .ft_menu_box .dep li a:hover:after { width: 100%; }
     .ft_bt { clear:both; display:block; padding:1.5%; height: 45px; }
     .ft_bt .ft_copy { float:left; }
 	.ft_bt .ft_copy li a { color:#333; }
+    .ft_bt .ft_copy .ft_copy_logo a:after { content:""; display:block; clear:both; width: 0; height: 1px; background:#000; transition:0.5s; }
+    .ft_bt .ft_copy .ft_copy_logo a:hover:after { width: 37%; }
     .ft_bt .ft_etc { float:right; }
     .ft_etc li { float:left; margin:1rem 1rem; } 
 	.ft_etc li a { color:#333; }
+    .ft_etc li a:after { content:""; display:block; clear:both; width: 0; height: 1px; background:#000; transition:0.5s; } 
+    .ft_etc li a:hover:after { width: 100%; }
     </style>
     <script src="./js/jquery-3.4.1.js"></script>
     <script>
@@ -212,6 +222,10 @@
         <div class="page_btn">
            <a href="" class="btn_txt">
                <span>더 알아보기</span>
+               <span class="arrow arrow1"></span>
+               <span class="arrow arrow2"></span>
+               <span class="arrow arrow3"></span>
+               <span class="arrow arrow4"></span>
            </a>
         </div>       
 	</div>
@@ -289,14 +303,18 @@
 	    <div class="page6_sub">
             <ul class="sub_box">
                 <li class="box_tit1">
-                	<span class="box_tit_com">문의하신 내용은 이메일을 통해 신속 답변해 드리겠습니다.</span>
+                	<span class="box_tit_com">
+                     문의하신 내용은 이메일을 통해<br>
+                	 신속 답변해 드리겠습니다.</span>
                 	<span class="box_tit_txt">Inquiry</span>
-                	<img src="./images/img_tab02_02.png" alt="고객문의">
+                	<img src="./images/img_tab02_02.png" alt="고객문의" class="pic2">
                 </li>
                 <li class="box_tit1">
-					<span class="box_tit_com">한전엠씨에스와 함께 꿈을 펼쳐 나아갈 인재를 모집합니다.</span>
+					<span class="box_tit_com">
+					한전엠씨에스와 함께 꿈을<br>
+				    펼쳐 나아갈 인재를 모집합니다.</span>
 					<span class="box_tit_txt">Recruit</span>
-					<img src="./images/img_tab04_02.png" alt="인재채용">
+					<img src="./images/img_tab04_02.png" alt="인재채용" class="pic2">
                 </li>
             </ul>
 	    </div>
@@ -360,13 +378,13 @@
     <div class="ft_bt">
             <div class="ft_copy">
                 <ul>
-                    <li><a href="">한전엠씨에스(주)</a></li>
+                    <li class="ft_copy_logo"><a href="">한전엠씨에스(주)</a></li>
                     <li>Copyright&copy;한전MCS. All Rights Reserved.</li>
                 </ul>
             </div>
             <div class="ft_etc">
                 <ul>
-                    <li><a href="">Legal Notice</a></li>
+                    <li><a href="">LEGAL NOTICE</a></li>
                     <li><a href="">LOCATION</a></li>
                 </ul>
             </div>
