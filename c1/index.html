@@ -36,9 +36,9 @@
     .thum_fr li { float: left; height: 360px; margin-right: 40px; overflow:hidden; cursor:pointer;}
     .thum_fr li a { display:block; background-color:#f2f2f2; border:2px solid transparent; padding:2rem; min-height:240px; 
         transition:0.6s;}
-    .thum_fr li a:hover { border:2px solid darkred;  background-color:#fff; } 
+    .thum_fr li a:hover { border:3px solid darkred;  background-color:#fff; color:darkred; transition:0.3s; } 
     .thum_com { padding-top: 1em; padding-bottom: 1em;}
-    .thum_fr li .kr, .thum_fr li .en { font-size:1.4em;}
+    .thum_fr li .kr, .thum_fr li .en { font-size:1.4em; font-weight:bold; }
     .thum_fr li.pic a { background-image: url(./img/visual.jpg); background-size: cover; color:#fff; }
     .thum_fr li.pic a .tit3 { color:#fff; }
     .col4.first { margin-left: 40px; }
@@ -56,11 +56,11 @@
     .img_box li .en { display:block; }
     .img_box li:hover .kr { display:block; }
     .img_box li:hover .en { display:none; }
-    .text_tit { padding-left:60px; }
+    .text_tit { padding-left:60px; font-size:30px; text-align:left; font-weight:bold; }
     .text_con { padding-left: 60px; padding-right:2em; word-break:keep-all; }
-    .btn_view { display:block; width: 120px; height: 42px; line-height: 42px; border:2px solid transparent; 
-        margin-left: 60px; margin-top: 15px; color:#333; text-align: center; }
-    .img_box li:hover .btn_view { color:darkred; border:2px solid darkred; }
+    .btn_view { display:block; width: 120px; height: 42px; line-height: 42px; border:2px solid #000; 
+        margin-left: 60px; margin-top: 50px; color:#333; text-align: center; }
+    .img_box li:hover .btn_view { color:#fff; border:2px solid darkred; background-color:darkred; transition: all 0.35s cubic-bezier(0.86, 0, 0.07, 1); }
     .btn_box { position:absolute; width: 300px; height: 15px; bottom:60px; right:100px; } 
     .btn_box li { float:left; width: 100px; }    
     .btn_box li button {display: block; width: 90px; margin: 0 auto; height:6px; background:#ececec; cursor: pointer; }  
@@ -244,12 +244,12 @@
                      </div>
                      <div class="text">
                          <p class="text_tit">
-                             <span class="kr">사회공헌</span><br>
+                             <span class="kr">사회공헌</span>
                              <span class="en">Social Contributuions</span><br>
                          </p>
                          <p class="text_con">
-                         따뜻한 세상을 만드는 행복한 나눔을 실천합니다<br>
-                          동국제강은 기업의 근간이 지역사회에 있음을 알기에 1954년 창립 이후 꾸준히 '이웃과 함께하는 나눔'을 실현해가고 있습니다.<br>
+                         따뜻한 세상을 만드는 행복한 나눔을 실천합니다.<br>
+                          동국제강은 기업의 근간이 지역사회에 있음을 알기에 1954년 창립 이후 꾸준히 '이웃과 함께하는 나눔'을 실현해가고 있습니다.
                          '사회환원'의 경영이념을 바탕으로 사회와 함께하는 기업시민으로서의 책임을 다하겠습니다.   
                          </p>
                          <a href="sub1.html#page1" class="btn_view">자세히</a> 
@@ -261,12 +261,13 @@
                      </div>
                      <div class="text">
                          <p class="text_tit">
-                             <span class="kr">윤리경영</span><br>
+                             <span class="kr">윤리경영</span>
                              <span class="en">Ethics Management</span><br>
                          </p>
                          <p class="text_con">
-                            공정하고 투명한 경영을 통해 윤리경영을 실천하겠습니다<br>
-                            사회와 고객이 신뢰하는 윤리경영을 실천하기 위해 윤리강령을 제정하여 임직원들의 행동의 기준으로 적용하고 있습니다. 
+                            공정하고 투명한 경영을 통해 윤리경영을 실천하겠습니다.<br>
+                            사회와 고객이 신뢰하는 윤리경영을 실천하기 위해 윤리강령을<br> 
+                            제정하여 임직원들의 행동의 기준으로 적용하고 있습니다. 
                          </p>
                          <a href="sub1.html#page4" class="btn_view">자세히</a> 
                      </div>
@@ -277,14 +278,12 @@
                      </div>
                      <div class="text">
                          <p class="text_tit">
-                             <span class="kr">환경경영</span><br>
+                             <span class="kr">환경경영</span>
                              <span class="en">Green Management</span><br>
                          </p>
                          <p class="text_con">
-                            동국제강은 지속 가능한 가치 창출을 위해 친환경 정책을 실천하고 있습니다<br>
-                            순환 재생 원료로써 고철을 활용하여 새로운 철강 제품을 생산하는 전기로 제조방식을 기반으로 오염물질배출과 에너지소비량을
-                            최소화하려는 원칙을 모든 사업장마다 철저히 지켜나가고 있으며, 공정개선 및 설비투자를 통해 환경 오염을 최소화하는 동시에 
-                            최상의 제품 품질을 만들어 내기 위한 동국제강의 노력은 지금도 지속되고 있습니다.
+                            동국제강은 지속 가능한 가치 창출을 위해 친환경 정책을 실천하고 있습니다.
+                            순환 재생 원료로써 고철을 활용하여 새로운 철강 제품을 생산하는 전기로 제조방식을 기반으로 오염물질배출과 에너지소비량을 최소화하려는 원칙을 모든 사업장마다 철저히 지켜나가고 있습니다.
                          </p>
                          <a href="sub1.html#page6" class="btn_view">자세히</a> 
                      </div>
