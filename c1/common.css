@@ -11,12 +11,13 @@ label, button, input { outline: 0; border: 0; background: none; background-color
     background:rgba(160,160,160,1); }
 #tnb {  width: 1240px; margin:0 auto; }
 #tnb li { float:left; padding:0px 7px; }
-#tnb li a:after { content: "|"; padding-left: 1em;}
+#tnb li a:after { content: "|"; padding-left: 1em; color:#fff; }
 #tnb li.last a:after { content:""; }
 #tnb .left { float: left; }
 #tnb .right { float: right; }
-#tnb li a { display:block; color: #fff; font-size:13px; line-height:36px; }
+#tnb li a { display:block; color: #fff; font-size:13px; line-height:36px; font-weight:bolder;}
 #tnb li a:hover { color: red; }
+
 #ck { }
 
 #gnb { width:340px; height:100vh; position:fixed; top:0; left:-380px; z-index:999; 
