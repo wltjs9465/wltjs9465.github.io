@@ -5,18 +5,15 @@
     <title>NEOBIOTECH.CO.LTD</title>
     <style>
     @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
     * { margin:0; padding:0; }
     body, html { width:100%;  height: 100%; }
-        html { overflow:hidden; }   
-        body { overflow-y:auto; overflow-x:hidden;}
     ul { list-style:none; }
-        a { text-decoration: none;}
-    .container { clear:both; position:relative; width: 100vw; height: 100vh; }    
-    .hd { width:100%; height:100px; position:absolute; top:0; left:0; z-index:90; } 
-    .left_menu a { float:right; position:relative; font-size:16px; color:#333130; font-weight:bold; }
-    #left_menu1 a:hover { border-bottom: 8px solid #d83d96; transition:0.3s; }
-    #left_menu2 { }
-    div.blank { position:relative; width:100vw; height:calc(100vh - 42.1875vw - 100px); margin-top:100px; }
+    a { text-decoration: none; } 
+    label { cursor:pointer; }
+    .hd { width: 100%; height: 100%; position:absolute; top:50px; left:0; z-index:90; }
+    #hd_logo { float:left; }
+    .left_menu {}
     .left_box {  position:absolute; width:60vw; height:30vw; left:0;
        overflow:hidden; bottom:0px; }
     .right_box { position:absolute; width:40vw; height:42.1875vw;  right:0; bottom: 0; 
@@ -26,26 +23,17 @@
     #col_menu li label { display:block; position:relative; font-size:3.75vw; color: #333130; cursor:pointer; font-weight:bold; }
     #col_menu li label:hover { color: #d83d96; }
     #col_menu li label.on { font-size:3.75vw; cursor:none; }
-    .sub { position:absolute; top:-500px; right:0px; width:500px; z-index:80;
-        transition:0.6s; opacity:0; background:#fff; }
-    .sub li a { display:block; font-size:1.04167vw; color:#333; }
-    .sub li a:hover { color: #d83d96;}
-    .ft { background-color:#2a2f3c; height:240px; position:relative; clear:both; }
-    .info_box1 li a { font-size:18px; color:#8b8e97; float:left; margin:42px; }
-    .ft .info_box1 li .point { color:#d83d96; }
-    .info_box2 li a { font-size:16px; color:#fff; float:right; padding: 15px 20px 15px 20px;}
-    .adress_box li a { font-size:14px; color:#8b8e97; float:inherit; }
-    .social_box { width: 190px; height: 40px; float:right; display:inline-block; }
+    .social_f { width:20px; height:20px; }
+    .social_y { width: 25px; height: 20px; }
     </style>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
-<div class="container">
      <header class="hd">
-         <a href="index.html" class="logo"><img src="./images/main-logo-on.png" alt="로고"></a>
-         <ul class="left_menu">
-             <li id="left_menu1"><a href="">공지사항</a></li>
-             <li id="left_menu2"><a href="">KOR</a></li>
+         <ul class="hd_menu">
+             <li id="hd_logo"><a href="index.html"><img src="./images/main-logo-on.png" alt="메인로고"></a></li>
+             <li id="right_menu1"><a href="">제품문의</a></li>
+             <li id="right_menu2"><a href="">KOR</a></li>
          </ul>
          <button type="button">
              <span class="bar1"></span>
@@ -53,22 +41,60 @@
              <span class="bar3"></span>
          </button>
      </header>
-     <div class="blank">
+    <div class="content">
     <!--
         <input type="radio" id="ra1" name="rado1" class="n_item">
         <input type="radio" id="ra2" name="rado1" class="n_item">
         <input type="radio" id="ra3" name="rado1" class="n_item">
         <input type="radio" id="ra4" name="rado1" class="n_item"> 
     -->
-     </div>  
+        <nav id="col_menu">
+           <ul>
+               <li><label for="ra1" data="1">Company</label>
+                   <ul class="sub">
+                       <li><a href="">기업정보</a></li>
+                       <li><a href="">투자정보</a></li>
+                       <li><a href="">R&D</a></li>
+                       <li><a href="">홍보센터</a></li>
+                   </ul>
+               </li>
+               <li><label for="ra2" data="2">Sustainability</label>
+                   <ul class="sub">
+                       <li><a href="">지속가능경영</a></li>
+                       <li><a href="">환경안전</a></li>
+                       <li><a href="">기후변화대응</a></li>
+                       <li><a href="">공급망</a></li>
+                       <li><a href="">인권경영</a></li>
+                       <li><a href="">사회공헌</a></li>
+                       <li><a href="">준법경영</a></li>
+                    </ul>
+               </li>
+               <li><label for="ra3" data="3">Product</label>
+                   <ul class="sub">
+                       <li><a href="">석유화학</a></li>
+                       <li><a href="">전지</a></li>
+                       <li><a href="">첨단소재</a></li>
+                       <li><a href="">생명과학</a></li>
+                   </ul>
+               </li>
+               <li><label for="ra4" data="4">Recruit</label>
+                   <ul class="sub">
+                       <li><a href="">인재상</a></li>
+                       <li><a href="">인사제도</a></li>
+                       <li><a href="">지원가이드</a></li>
+                       <li><a href="">채용공고</a></li>
+                   </ul>
+               </li>
+           </ul>
+    </nav>
+     </div> 
      <div class="left_box" ><img src="./images/company-visual.png" alt="회사소개" >
 
      </div> 
      <div class="right_box" style=""> 
-        <video src="images/neo.mp4" autoplay muted>
+        <video src="./images/neo.mp4" autoplay muted>
         </video>
-    </div>
-</div>    
+    </div>  
  <footer class="ft">
     <div class="info_box1">
      <ul>
@@ -91,14 +117,14 @@
          <li><a href="">사업등록번호 : 807-86-00744</a></li>
          <li><a href="">서울특별시 구로구 디지털로 27길 36. 907호 (구로동. 이스페이스)</a></li>
          <li><a href="tel:02-582-2885">고객지원 : 02-582-2885 (평일 09:00 ~ 18:00 주말 및 공휴일 제외)</a></li>
-         <li><a href="">COPYRIGHT ⓒ NEOIMPLANTS.CO.LTD ALL RIGHT RESERVED.</a></li>
+         <li><a href="">COPYRIGHT &copy; NEOIMPLANTS.CO.LTD ALL RIGHT RESERVED.</a></li>
        </ul>
      </div>
      <div class="social_box">
          <ul>
              <li><a href=""><img src="./images/footer-main-logo.png" alt=""></a></li>
-             <li><a href=""><img src="./images/face.png" width:10px height="20px" alt=""></a></li>
-             <li><a href=""><img src="./images/ytb.png" width:10px height="20px" alt=""></a></li>
+             <li><a href=""><img src="./images/face.png" alt="" class="social_f"></a></li>
+             <li><a href=""><img src="./images/ytb.png" alt="" class="social_y"></a></li>
          </ul>
      </div>
  </footer>
