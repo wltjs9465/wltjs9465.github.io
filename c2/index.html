@@ -64,7 +64,7 @@
     .page_btn { display:block;  margin-left: 20vw; clear:both; margin-top: 2rem; }
     .page_btn .btn_txt { display:block; top:4vh; background-color:#000; width: 140px; height: 50px; line-height: 300%;text-indent:20px;  color:#fff; position:relative; }
     .page_btn .btn_txt:hover { color:#333; background-color:#fff; }
-/*    .page_btn .btn_txt:after { content:"→"; padding-left: 14px;  }    */
+    /* .page_btn .btn_txt:after { content:"→"; padding-left: 14px;  } */
     .page_btn .btn_txt .arrow { display:block; position:absolute; background-color:#fff; transition:0.5s; }
     .page_btn .btn_txt .arrow1 { width: 12px; height: 2px;  top:20px; right:10px; transform:rotate(45deg); }    
     .page_btn .btn_txt .arrow2 { width: 12px; height: 2px;  top:28px; right:10px;  transform:rotate(-45deg);}    
@@ -74,23 +74,28 @@
 	.page .scroll_img_box { position:absolute; bottom:20vh; left: 0; z-index:-1; margin-left: 20vw; width: 600px; height:auto;
         transition:0.6s; transition-timing-function: ease-in; }
     .page .scroll_img_box img { display:block; width: 100%;  }    
-    .page.on .scroll_img_box { width: 100vw; margin-left: 0; left: 0; }    
-        
+    .page.on .scroll_img_box { width: 100vw; margin-left: 0; left: 0; }       
     .main_tit1 { font-size:56px;  margin-left: 20vw; margin-top: 2rem; text-shadow:0px 0px 5px #f1f1f1; }
     .page .main_tit1 span { display:block; height:80px; width: 100%; overflow:hidden; margin-top: 100px; opacity:0; transition:0.5s; 
         transition-property:margin, opacity; transition-delay:0s, 0.2s; transition-timing-function:ease-in; }
-    .page.on .main_tit1 span { margin-top: 0; opacity:1; }    
-    .main_tit2 { font-size:18px; margin-top: 28px; padding-top: 28px; border-top:1px solid #000; clear:both; width: 450px; letter-spacing:-1px; position:absolute; left: 0; top: 50vh; margin-left: 20vw; }
-    .main_tit3 { font-size:32px; margin-top:24px; padding-top:14px; position:absolute; left:0; top:56vh; margin-left: 20vw; }
+    .page.on .main_tit1 span { margin-top: 0; opacity:1; }
+    .page.on #page2_main { position:relative; transform:translateY(-400px);}
+    .page.on #page2_sub { position:relative; transform:translateY(-370px); }
+    .page.on #page2_btn { position:relative; transform:translateY(-360px); }
+    .main_tit2 { font-size:18px; margin-top: 28px; padding-top: 28px; border-top:1px solid #000; clear:both; width: 450px; letter-spacing:-1px; position:absolute; left: 0; top: 50vh; margin-left: 20vw; transition:0.5s; }
+    .page.on .main_tit2 { font-size:0px; }
+    .main_tit3 { font-size:32px; margin-top:24px; padding-top:14px; position:absolute; left:0; top:56vh; margin-left: 20vw; transition:0.5s; }
+    .page.on .main_tit3 { font-size:0px; }
 	.main_tit4 { font-size:16px;  margin-left: 20vw; margin-top: 2rem; text-shadow:0px 0px 2px #f1f1f1; 
 		color:#ccc; font-weight:normal; }
     .page .pic { position:absolute; left: 0; top:70vh; margin-left: 20vw; width:300px; height: auto; display:block; transition:0.5s; }
     .page.on .pic { margin-left:0; width: 100vw; top:75vh; }    
-    .page6_tit { margin-left: 100px; margin-top:30vh; font-size:30px; font-weight:bolder; }
+    .page6_tit { margin-left: 100px; margin-top:30vh; font-size:0px; font-weight:bolder; transition:0.2s; }
+    .page.on .page6_tit { font-size: 30px; }
 	.page6_sub { margin-top:100px; }
-	.page6_sub .sub_box { float:right; margin-right: 17%;  }
+	.page6_sub .sub_box { float:right; margin-right: 17%; }
 	.page6_sub .sub_box li { padding: 24px; float:left; }
-	.page6_sub .sub_box span { display:block; line-height: 1.6; }
+	.page6_sub .sub_box span { display:block; line-height: 1.6; }   
 	.box_tit_com { padding-top: 20px; border-top:1px solid #333; }
 	.box_tit_txt { font-size:40px; padding-top: 42px; padding-bottom: 24px; }
     .page6_sub .box_tit1 { float:left; display:block; }
@@ -142,7 +147,7 @@
             $(this).attr("data-offset", tp);
             $(window).scroll(function(){
                 var sct = $(this).scrollTop();
-                if(sct >= tp-ht*0.45){
+                if(sct >= tp-ht*0.55){
                     pg.eq(idx).addClass("on");
                 }
                 if(sct>=250){
@@ -246,12 +251,12 @@
 		</div>
 	</div>
 	<div class="page" id="page2">
-        <h1 class="main_tit1">
+        <h1 class="main_tit1" id="page2_main">
 				<span class="tit2_fr" >한전MCS에</span>
 				<span>고객 여러분들의</span> 
 				<span>많은 성원 부탁드립니다.</span>
         </h1>
-        <h4 class="main_tit4">
+        <h4 class="main_tit4" id="page2_sub">
         한전MCS는 한국전력공사의 <br>
         검침업무를 책임지고 있는 <br>
         한전의 새로운 에너지 파트너로서<br>
@@ -262,7 +267,7 @@
         <div class="scroll_img_box">
         <!--<img src="./images/main_slider01.png" alt="메인이미지" class="pic1">-->
         </div>
-        <div class="page_btn">
+        <div class="page_btn" id="page2_btn">
            <a href="" class="btn_txt">
                <span>더 알아보기</span>
                <span class="arrow arrow1"></span>
